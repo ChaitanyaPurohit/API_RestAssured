@@ -29,4 +29,9 @@ public class GetMethodAuthors {
 	public void testGetNonExistingAuthorById() {
 		given().when().get("https://fakerestapi.azurewebsites.net/api/v1/Authors/12345").then().statusCode(404);
 	}
+
+	@Test
+	public void testGetAuthorsWithInvaliIdFormat() {
+		given().when().get("https://fakerestapi.azurewebsites.net/api/v1/Authors/abc").then().statusCode(400);
+	}
 }
