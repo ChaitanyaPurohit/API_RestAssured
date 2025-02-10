@@ -2,7 +2,7 @@ package com.authors;
 
 import org.testng.annotations.Test;
 
-import com.authorsdata.TestData;
+import com.swaggerdata.TestData;
 
 import io.restassured.http.ContentType;
 
@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.nullValue;
 
-public class PostMethodauthors {
+public class PostMethodAuthors {
 	String validPayload = "{ \"id\": 123, \"idBook\": 789, \"firstName\": \"Chaitanya\", \"lastName\": \"Purohit\"}";
 
 	@Test

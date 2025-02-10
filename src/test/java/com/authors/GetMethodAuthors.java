@@ -2,7 +2,7 @@ package com.authors;
 
 import org.testng.annotations.Test;
 
-import com.authorsdata.TestData;
+import com.swaggerdata.TestData;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.greaterThan;
