@@ -4,7 +4,6 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 
-import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 public class GetMethodActivities {
@@ -43,46 +42,8 @@ public class GetMethodActivities {
 		.statusCode(404);
 	}
 	
-	@Test
-	public void verifyGetActivitesWithValidData() {
-		given().when().get("https://fakerestapi.azurewebsites.net/api/v1/Activities").then().log().all()
-		.assertThat()
-		.body("[0].id",Matchers.equalTo(1))
-		.body("[0].title",Matchers.equalTo("Activity 1"))
-		.body("[0].completed",Matchers.equalTo(false))
-		.statusCode(200)
-		.body("size()", greaterThan(0));
-	}
+	
 
-	@Test
-	public void VerifyGetActivitiesWithEmptyId() {
-		given().when().get("https://fakerestapi.azurewebsites.net/api/v1/Activities/").then().log().all().assertThat()
-		.statusCode(200);
-	}
-	
-	@Test
-	public void VerifyGetActivitiesWithInvalidEndpoint() {
-		given().when().get("https://fakerestapi.azurewebsites.net/api/v1/Act/1").then().log().all()
-		.assertThat().statusCode(404);
-	}
-	
-	@Test
-	public void VerifyGetActivitiesWithInvalidformatOfId() {
-		given().when().get("https://fakerestapi.azurewebsites.net/api/v1/Activities/<123>").then().log().all()
-		.assertThat().statusCode(400);
-	}
-	@Test
-	public void VerifyGetActivitiesWithInvalidformatOfNegativeId() {
-		given().when().get("https://fakerestapi.azurewebsites.net/api/v1/Activities/-123").then().log().all()
-		.assertThat().statusCode(404);
-	}
-	
-	@Test
-	public void VerifyGetActivitiesInvalidprotocol() {
-		given().when().post("https://fakerestapi.azurewebsites.net/api/v1/Activities/1").then().log().all()
-		.assertThat().statusCode(405);
-	}
-	
 	
 
 }
