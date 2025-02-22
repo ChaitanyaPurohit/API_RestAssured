@@ -5,3 +5,4 @@ public interface TestData {
 	String baseUrlActivity="https://fakerestapi.azurewebsites.net/api/v1/Activities";
 	String baseUrlActivities="https://fakerestapi.azurewebsites.net/api/v1/Activities/";
 }
+
