@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class GetMethodAuthors {
 	@Test
 	public void testGetAllAuthors() {
-		given().when().get("https://fakerestapi.azurewebsites.net/api/v1/Authors").then().statusCode(200)
+		given().when().get(TestData.baseUrl).then().statusCode(200)
 				.body("size()", greaterThan(0)).log().all();
 	}
 
