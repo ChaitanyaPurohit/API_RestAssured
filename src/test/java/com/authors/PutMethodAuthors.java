@@ -13,14 +13,14 @@ public class PutMethodAuthors {
 
 	@Test
 	public void testUpdateAuthorWithValidPayload() {
-		given().header("Content-Type", "application/json").body(validPayload).when().put(TestData.baseUrl + "/123")
+		given().header("Content-Type", "application/json").body(validPayload).when().put(TestData.baseUrl + "/Authors/123")
 				.then().statusCode(200).body("id", equalTo(123)).body("idBook", equalTo(789))
 				.body("firstName", equalTo("Chaitanya")).body("lastName", equalTo("Purohit"));
 	}
 
 	@Test
 	public void testUpdateAuthorWithEmptyPayload() {
-		given().header("Content-Type", "application/json").body("{}").when().put(TestData.baseUrl + "/123").then()
+		given().header("Content-Type", "application/json").body("{}").when().put(TestData.baseUrl + "/Authors/123").then()
 				.statusCode(200).body("id", equalTo(0)).body("idBook", equalTo(0)).body("firstName", nullValue())
 				.body("lastName", nullValue());
 	}
@@ -33,33 +33,33 @@ public class PutMethodAuthors {
 				}
 				""";
 
-		given().header("Content-Type", "application/json").body(incompletePayload).when().put(TestData.baseUrl + "/123")
+		given().header("Content-Type", "application/json").body(incompletePayload).when().put(TestData.baseUrl + "/Authors/123")
 				.then().statusCode(200).body("id", equalTo(123)).body("idBook", equalTo(0))
 				.body("firstName", nullValue()).body("lastName", nullValue());
 	}
 
 	@Test
 	public void testUpdateAuthorWithInvalidIDFormat() {
-		given().header("Content-Type", "application/json").body(validPayload).when().put(TestData.baseUrl + "/abc")
+		given().header("Content-Type", "application/json").body(validPayload).when().put(TestData.baseUrl + "/Authors/abc")
 				.then().statusCode(400);
 	}
 
 	@Test
 	public void testUpdateAuthorWithNonExistentID() {
-		given().header("Content-Type", "application/json").body(validPayload).when().put(TestData.baseUrl + "/9999")
+		given().header("Content-Type", "application/json").body(validPayload).when().put(TestData.baseUrl + "/Authors/9999")
 				.then().statusCode(200).body("id", equalTo(123)).body("idBook", equalTo(789))
 				.body("firstName", equalTo("Chaitanya")).body("lastName", equalTo("Purohit"));
 	}
 
 	@Test
 	public void testUpdateAuthorWithSpecialCharacterID() {
-		given().header("Content-Type", "application/json").body(validPayload).when().put(TestData.baseUrl + "/!@#")
+		given().header("Content-Type", "application/json").body(validPayload).when().put(TestData.baseUrl + "/Authors/!@#")
 				.then().statusCode(400);
 	}
 
 	@Test
 	public void testUpdateAuthorWithNegativeID() {
-		given().header("Content-Type", "application/json").body(validPayload).when().put(TestData.baseUrl + "/- 123")
+		given().header("Content-Type", "application/json").body(validPayload).when().put(TestData.baseUrl + "/Authors/- 123")
 				.then().log().all().statusCode(400);
 	}
 
@@ -76,7 +76,7 @@ public class PutMethodAuthors {
 				""";
 
 		given().header("Content-Type", "application/json").body(extraFieldsPayload).when()
-				.put(TestData.baseUrl + "/123").then().statusCode(200).body("id", equalTo(123))
+				.put(TestData.baseUrl + "/Authors/123").then().statusCode(200).body("id", equalTo(123))
 				.body("idBook", equalTo(789)).body("firstName", equalTo("Chaitanya"))
 				.body("lastName", equalTo("Purohit"));
 	}
