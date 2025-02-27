@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.*;
 public class AuthorRequests {
 
 	private static final String BASE_URL = TestData.baseUrl;
-	private static final String ENDPOINT = "/{id}";
+	private static final String ENDPOINT = "Authors/{id}";
 
 	// Common Request Specification for GET requests
 	private static RequestSpecification getRequestSpec() {
@@ -25,7 +25,7 @@ public class AuthorRequests {
 
 	// Common Request Specification for PUT requests
 	private static RequestSpecification putRequestSpec(String payload, String authorId) {
-		return new RequestSpecBuilder().setBaseUri(BASE_URL + "/" + authorId).setContentType(ContentType.JSON)
+		return new RequestSpecBuilder().setBaseUri(BASE_URL + "/Authors/" + authorId).setContentType(ContentType.JSON)
 				.setBody(payload).build();
 	}
 
