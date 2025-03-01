@@ -1,0 +1,18 @@
+{
+"payloads":{
+"validPayload": [{ 
+"id": 123, 
+"idBook": 789, 
+"firstName": "Chaitanya", 
+"lastName": "Purohit"
+}
+],
+"invalidPayload":[
+{
+"id": 123, 
+"idBook": 789, 
+"firstName": "chaitanya"
+}
+]
+}
+}
