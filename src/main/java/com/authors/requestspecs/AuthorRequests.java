@@ -20,7 +20,7 @@ public class AuthorRequests {
 
 	// Common Request Specification for POST requests
 	private static RequestSpecification postRequestSpec(String payload) {
-		return new RequestSpecBuilder().setBaseUri(BASE_URL).setContentType(ContentType.JSON).setBody(payload).build();
+		return new RequestSpecBuilder().setBaseUri(BASE_URL+ "/Authors").setContentType(ContentType.JSON).setBody(payload).build();
 	}
 
 	// Common Request Specification for PUT requests

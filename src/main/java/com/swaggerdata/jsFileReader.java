@@ -30,8 +30,4 @@ public class jsFileReader {
 		// structured format
 		return payload;
 	}
-	public static void main(String[] args) {
-		readJson("/src/test/resources/requestPayload/CreateUserWithValidPayloadAuthors.json", "validPayload");
-	}
-
 }
