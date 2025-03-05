@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.nullValue;
 public class PostMethodAuthors extends jsFileReader {
 	
 	
-	String validPayload = 	jsFileReader.readJson("/src/test/resources/requestPayload/CreateUserWithValidPayloadAuthors.json", "validPayload");
+	String validPayload = 	jsFileReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "validPayload");
 	@Test
 	public void testCreateAuthorSuccess() {
 		given().contentType(ContentType.JSON).body(validPayload).when().post(TestData.baseUrl + "/Authors").then()
@@ -24,7 +24,7 @@ public class PostMethodAuthors extends jsFileReader {
 
 	@Test
 	public void testCreateAuthorMissingLastName() {
-		String payloadWithoutName = "{\"id\": 123, \"idBook\": 789, \"firstName\": \"chaitanya\"}";
+		String payloadWithoutName = jsFileReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "payloadWithoutName");
 
 		given().contentType(ContentType.JSON).body(payloadWithoutName).when().post(TestData.baseUrl + "/Authors").then()
 				.statusCode(200).body("lastName", nullValue());
@@ -48,23 +48,22 @@ public class PostMethodAuthors extends jsFileReader {
 
 	@Test
 	public void testCreateAuthor_InvalidDataTypes() {
-		String invalidPayload = "{ \"id\": \"invalid\", \"idBook\": \"invalid\", \"firstName\": 123, \"lastName\": 456 }";
+		String invalidPayloadNamesAsInt = jsFileReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "invalidPayloadNamesAsInt");
 
-		given().contentType(ContentType.JSON).body(invalidPayload).when().post(TestData.baseUrl + "/Authors").then()
+		given().contentType(ContentType.JSON).body(invalidPayloadNamesAsInt).when().post(TestData.baseUrl + "/Authors").then()
 				.statusCode(400).body("id", nullValue()).body("firstName", nullValue());
 	}
 
 	@Test
 	public void testCreateAuthor_ExtraFields() {
-		String payloadWithExtraFields = "{ \"id\": 123, \"idBook\": 789, \"firstName\": \"Chaitanya\", \"lastName\": \"Purohit\", \"extraField\": \"extraValue\" }";
-
+		String payloadWithExtraFields = jsFileReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "payloadWithExtraFields");
 		given().contentType(ContentType.JSON).body(payloadWithExtraFields).when().post(TestData.baseUrl + "/Authors")
 				.then().statusCode(200).body("extraField", nullValue());
 	}
 
 	@Test
 	public void testCreateAuthor_NullFields() {
-		String payloadWithNullFields = "{ \"id\": null, \"idBook\": null, \"firstName\": null, \"lastName\": null }";
+		String payloadWithNullFields = jsFileReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "payloadWithNullFields");
 
 		given().contentType(ContentType.JSON).body(payloadWithNullFields).when().post(TestData.baseUrl + "/Authors")
 				.then().statusCode(400).body("id", nullValue()).body("firstName", nullValue());
