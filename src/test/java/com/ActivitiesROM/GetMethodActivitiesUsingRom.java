@@ -6,9 +6,10 @@ import static org.hamcrest.Matchers.greaterThan;
 import org.testng.annotations.Test;
 
 import com.activities.requestspecs.ActivityRequest;
+import com.restAssured.base.BaseTest;
 
 
-public class GetMethodActivitiesUsingRom {
+public class GetMethodActivitiesUsingRom{
 	@Test
 	public void testGetAllActivities() {
 		ActivityRequest.getAllActivity().then().statusCode(200).body("size()", greaterThan(0)).log().all();

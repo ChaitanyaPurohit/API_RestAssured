@@ -2,13 +2,14 @@ package com.authors;
 
 import org.testng.annotations.Test;
 
+import com.restAssured.base.BaseTest;
 import com.swaggerdata.TestData;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.equalTo;
 
-public class GetMethodAuthors {
+public class GetMethodAuthors{
 	@Test
 	public void testGetAllAuthors() {
 		given().when().get(TestData.baseUrl + "/Authors").then().statusCode(200)

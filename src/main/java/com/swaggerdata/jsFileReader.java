@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 public class jsFileReader {
-	public static String readJson(String path, String payloadType) {
+	public String readJson(String path, String payloadType) {
 		File f = new File(System.getProperty("user.dir") + path);
 		// Open a file input stream to read the content of the file
 		FileInputStream fileInputStream = null;

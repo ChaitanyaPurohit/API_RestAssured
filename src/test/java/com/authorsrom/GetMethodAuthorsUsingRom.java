@@ -3,10 +3,12 @@ package com.authorsrom;
 import org.testng.annotations.Test;
 
 import com.authors.requestspecs.AuthorRequests;
+import com.restAssured.base.BaseTest;
+
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.equalTo;
 
-public class GetMethodAuthorsUsingRom {
+public class GetMethodAuthorsUsingRom{
 
 	@Test
 	public void testGetAllAuthors() {

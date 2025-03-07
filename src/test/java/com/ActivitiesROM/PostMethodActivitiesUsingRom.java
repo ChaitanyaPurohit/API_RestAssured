@@ -7,8 +7,9 @@ import org.testng.annotations.Test;
 
 import com.activities.requestspecs.ActivityRequest;
 import com.authors.requestspecs.AuthorRequests;
+import com.restAssured.base.BaseTest;
 
-public class PostMethodActivitiesUsingRom {
+public class PostMethodActivitiesUsingRom{
 
 	String validPayload = "{ \"id\": 123, \"title\": \"NewActivity\", \"dueDate\": \"2025-02-24T18:52:27.658Z\", \"completed\": true}";
 

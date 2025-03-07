@@ -4,11 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.activities.requestspecs.ActivityRequest;
-
+import com.restAssured.base.BaseTest;
 
 import io.restassured.response.Response;
 
-public class DeleteMethodActivitiesUsingRom {
+public class DeleteMethodActivitiesUsingRom{
 	
 	@Test
     public void testDeleteExistingActivity() {

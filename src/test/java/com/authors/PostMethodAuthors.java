@@ -2,6 +2,7 @@ package com.authors;
 
 import org.testng.annotations.Test;
 
+import com.restAssured.base.BaseTest;
 import com.swaggerdata.TestData;
 import com.swaggerdata.jsFileReader;
 
@@ -11,10 +12,10 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.nullValue;
 
-public class PostMethodAuthors extends jsFileReader {
+public class PostMethodAuthors{
 	
-	
-	String validPayload = 	jsFileReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "validPayload");
+	jsFileReader jsReader=new jsFileReader();
+	String validPayload = 	jsReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "validPayload");
 	@Test
 	public void testCreateAuthorSuccess() {
 		given().contentType(ContentType.JSON).body(validPayload).when().post(TestData.baseUrl + "/Authors").then()
@@ -24,7 +25,7 @@ public class PostMethodAuthors extends jsFileReader {
 
 	@Test
 	public void testCreateAuthorMissingLastName() {
-		String payloadWithoutName = jsFileReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "payloadWithoutName");
+		String payloadWithoutName = jsReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "payloadWithoutName");
 
 		given().contentType(ContentType.JSON).body(payloadWithoutName).when().post(TestData.baseUrl + "/Authors").then()
 				.statusCode(200).body("lastName", nullValue());
@@ -48,7 +49,7 @@ public class PostMethodAuthors extends jsFileReader {
 
 	@Test
 	public void testCreateAuthor_InvalidDataTypes() {
-		String invalidPayloadNamesAsInt = jsFileReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "invalidPayloadNamesAsInt");
+		String invalidPayloadNamesAsInt = jsReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "invalidPayloadNamesAsInt");
 
 		given().contentType(ContentType.JSON).body(invalidPayloadNamesAsInt).when().post(TestData.baseUrl + "/Authors").then()
 				.statusCode(400).body("id", nullValue()).body("firstName", nullValue());
@@ -56,14 +57,14 @@ public class PostMethodAuthors extends jsFileReader {
 
 	@Test
 	public void testCreateAuthor_ExtraFields() {
-		String payloadWithExtraFields = jsFileReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "payloadWithExtraFields");
+		String payloadWithExtraFields = jsReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "payloadWithExtraFields");
 		given().contentType(ContentType.JSON).body(payloadWithExtraFields).when().post(TestData.baseUrl + "/Authors")
 				.then().statusCode(200).body("extraField", nullValue());
 	}
 
 	@Test
 	public void testCreateAuthor_NullFields() {
-		String payloadWithNullFields = jsFileReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "payloadWithNullFields");
+		String payloadWithNullFields = jsReader.readJson("/src/test/resources/requestPayloadForAuthors/CreateUserPayloads.json", "payloadWithNullFields");
 
 		given().contentType(ContentType.JSON).body(payloadWithNullFields).when().post(TestData.baseUrl + "/Authors")
 				.then().statusCode(400).body("id", nullValue()).body("firstName", nullValue());

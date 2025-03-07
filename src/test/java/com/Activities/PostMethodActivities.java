@@ -6,13 +6,14 @@ import static org.hamcrest.Matchers.nullValue;
 
 import org.testng.annotations.Test;
 
+import com.restAssured.base.BaseTest;
 import com.swaggerdata.TestData;
 
 import io.restassured.http.ContentType;
 
 import io.restassured.response.Response;
 
-public class PostMethodActivities {
+public class PostMethodActivities{
 	
 	String validPayload = "{\"id\":57,\"title\":\"New1\",\"completed\":true}";
 	
