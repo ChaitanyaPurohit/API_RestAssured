@@ -7,7 +7,9 @@ import static org.hamcrest.Matchers.greaterThan;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
-public class GetMethodActivities {
+import com.restAssured.base.BaseTest;
+
+public class GetMethodActivities{
 	
 	@Test
 	public void verifyGetAllActicitives() {

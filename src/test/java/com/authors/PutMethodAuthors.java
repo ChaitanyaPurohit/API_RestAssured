@@ -2,13 +2,14 @@ package com.authors;
 
 import org.testng.annotations.Test;
 
+import com.restAssured.base.BaseTest;
 import com.swaggerdata.TestData;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.nullValue;
 import static io.restassured.RestAssured.*;
 
-public class PutMethodAuthors {
+public class PutMethodAuthors{
 	String validPayload = "{ \"id\": 123, \"idBook\": 789, \"firstName\": \"Chaitanya\", \"lastName\": \"Purohit\"}";
 
 	@Test

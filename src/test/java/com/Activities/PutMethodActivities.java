@@ -6,9 +6,10 @@ import static org.hamcrest.Matchers.nullValue;
 
 import org.testng.annotations.Test;
 
+import com.restAssured.base.BaseTest;
 import com.swaggerdata.TestData;
 
-public class PutMethodActivities {
+public class PutMethodActivities{
 
 	String validPayload = "{ \"id\": 23, \"title\":\"New1\",\"completed\":true}";
 

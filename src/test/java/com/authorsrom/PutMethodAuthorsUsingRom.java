@@ -4,8 +4,9 @@ import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.nullValue;
 import com.authors.requestspecs.AuthorRequests;
+import com.restAssured.base.BaseTest;
 
-public class PutMethodAuthorsUsingRom {
+public class PutMethodAuthorsUsingRom{
 	String validPayload = "{ \"id\": 123, \"idBook\": 789, \"firstName\": \"Chaitanya\", \"lastName\": \"Purohit\"}";
 
 	@Test
