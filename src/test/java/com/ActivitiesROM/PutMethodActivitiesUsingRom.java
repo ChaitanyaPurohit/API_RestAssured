@@ -1,7 +1,6 @@
 package com.ActivitiesROM;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.nullValue;
 
 import org.testng.annotations.Test;
 

@@ -6,7 +6,6 @@ import static org.hamcrest.Matchers.lessThan;
 
 import org.testng.annotations.Test;
 
-import com.restAssured.base.BaseTest;
 import com.swaggerdata.TestData;
 
 

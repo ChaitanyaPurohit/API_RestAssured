@@ -6,7 +6,6 @@ import static org.hamcrest.Matchers.nullValue;
 
 import org.testng.annotations.Test;
 
-import com.restAssured.base.BaseTest;
 import com.swaggerdata.TestData;
 
 public class PutMethodActivities{
