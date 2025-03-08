@@ -23,11 +23,39 @@ public class jsFileReader {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		// Create a JSONTokener object that parses the JSON content from the file input
-		// stream
-
-		// Create a JSONObject from the JSONTokener, which reads the JSON content into a
-		// structured format
 		return payload;
 	}
 }
+
+//package com.swaggerdata;
+//
+//import java.io.InputStream;
+//import java.nio.charset.StandardCharsets;
+//import java.util.Scanner;
+//import org.json.JSONObject;
+//import org.json.JSONTokener;
+//
+//public class jsFileReader {
+//    public String readJson(String path, String payloadType) {
+//        ClassLoader classLoader = getClass().getClassLoader();
+//        InputStream inputStream = classLoader.getResourceAsStream(path);
+//        
+//        if (inputStream == null) {
+//            throw new RuntimeException("File not found: " + path);
+//        }
+//
+//        try (Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8.name())) {
+//            String jsonContent = scanner.useDelimiter("\\A").next();
+//            JSONObject requestData = new JSONObject(new JSONTokener(jsonContent));
+//
+//            if (requestData.has("payloads") && requestData.getJSONObject("payloads").has(payloadType)) {
+//                return requestData.getJSONObject("payloads").getJSONArray(payloadType).getJSONObject(0).toString();
+//            }
+//        } catch (Exception e) {
+//            throw new RuntimeException("Error reading JSON file: " + path, e);
+//        }
+//
+//        return null;
+//    }
+//}
+

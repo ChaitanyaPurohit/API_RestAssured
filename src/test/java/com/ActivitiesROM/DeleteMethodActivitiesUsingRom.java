@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.activities.requestspecs.ActivityRequest;
-import com.restAssured.base.BaseTest;
 
 import io.restassured.response.Response;
 

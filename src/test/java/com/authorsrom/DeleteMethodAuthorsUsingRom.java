@@ -5,7 +5,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import io.restassured.response.Response;
 import com.authors.requestspecs.AuthorRequests;
-import com.restAssured.base.BaseTest;
 
 public class DeleteMethodAuthorsUsingRom{
 

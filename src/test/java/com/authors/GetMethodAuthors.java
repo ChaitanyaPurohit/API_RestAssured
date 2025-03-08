@@ -2,7 +2,6 @@ package com.authors;
 
 import org.testng.annotations.Test;
 
-import com.restAssured.base.BaseTest;
 import com.swaggerdata.TestData;
 
 import static io.restassured.RestAssured.*;

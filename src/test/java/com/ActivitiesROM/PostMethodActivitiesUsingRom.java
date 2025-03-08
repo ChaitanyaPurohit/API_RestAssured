@@ -6,8 +6,6 @@ import static org.hamcrest.Matchers.nullValue;
 import org.testng.annotations.Test;
 
 import com.activities.requestspecs.ActivityRequest;
-import com.authors.requestspecs.AuthorRequests;
-import com.restAssured.base.BaseTest;
 
 public class PostMethodActivitiesUsingRom{
 

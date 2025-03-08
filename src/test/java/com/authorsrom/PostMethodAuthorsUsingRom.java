@@ -3,7 +3,6 @@ package com.authorsrom;
 import org.testng.annotations.Test;
 
 import com.authors.requestspecs.AuthorRequests;
-import com.restAssured.base.BaseTest;
 import com.swaggerdata.jsFileReader;
 
 import static org.hamcrest.Matchers.equalTo;
